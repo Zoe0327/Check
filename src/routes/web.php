@@ -25,6 +25,7 @@ Route::post('/edit', [AuthorController::class, 'update']);
 Route::get('/delete', [AuthorController::class, 'delete']);
 Route::post('/delete', [AuthorController::class, 'remove']);
 Route::get('/verror', [AuthorController::class, 'verror']);
+Route::get('/relation', [AuthorController::class, 'relate']);
 
 Route::prefix('book')->group(function () {
     Route::get('/', [BookController::class, 'index']);
