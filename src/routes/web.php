@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthorController;
-use APP\Http\Controllers\BookController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
