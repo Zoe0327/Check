@@ -54,7 +54,7 @@ class AuthorController extends Controller
     //検索機能
     public function search(Request $request)
     {
-        $item = Author::where('name', 'LIKE', "%{$request->input}%")->first();
+        $item = Author::where('name', $request->input)->first();
         $param = [
             'input' => $request->input,
             'item' => $item
@@ -89,7 +89,9 @@ class AuthorController extends Controller
     }
     public function relate()
     {
-        $items = Author::all();
-        return view('author.index', ['items' => $items]);
+        $hasItems = Author::has('book')->get();
+        $noItems = Author::doesntHave('book')->get();
+        $param = ['hasItems' => $hasItems, 'noItems' => $noItems];
+        return view('author.index', $param);
     }
 }
